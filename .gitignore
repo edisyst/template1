@@ -1,11 +1,25 @@
-a. Configurazione di Base
-Il file .gitignore deve contenere tutte le cartelle e i file che non devono essere tracciati da Git. Questi possono includere:
+# Laravel
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+.env
+.phpunit.result.cache
 
-File di configurazione locali: come .env, *.local.php, *.local.js.
-Dipendenze: Cartelle come node_modules/, vendor/.
-Cache: File di cache e log come *.log, *.cache, storage/.
-Compilati e build: Cartelle come dist/, build/, public/assets/.
-b. Specificità del Progetto
-Laravel: Puoi includere esclusioni specifiche per Laravel come /bootstrap/cache/ e /storage/framework/cache/.
-Node.js: Esclusioni per Node.js possono includere .next/ (per Next.js), .nuxt/ (per Nuxt.js).
-Docker: Se usi Docker, escludi file come docker-compose.override.yml o *.env.docker.
+# Ignora log, debug output e cache
+*.log
+*.cache
+*.env
+*.phpunit.result.cache
+/coverage/
+
+# Ignora i file generati dalle IDE
+.idea/
+/*.sublime-project
+/*.sublime-workspace
+
+# Ignora il file di configurazione di Composer
+composer.lock
+
+# Ignora i file di configurazione per Docker (se personalizzati)
+/docker-compose.override.yml
