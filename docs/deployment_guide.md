@@ -55,7 +55,7 @@ npm install && npm run production
 Copia il file .env.example e configuralo per l'ambiente di produzione:
 
 ```bash
-Copia codice
+
 cp .env.example .env
 php artisan key:generate
 ```
@@ -63,7 +63,56 @@ php artisan key:generate
 ### 2.4 Esegui le Migrazioni e Seeding
 
 ```bash
-Copia codice
 php artisan migrate --force
 php artisan db:seed --force
 ```
+
+## 3. Configurazione del Web Server
+
+### 3.1 Configurazione di Nginx
+
+Esempio di configurazione per Nginx:
+
+```nginx
+server {
+    listen 80;
+    server_name yourdomain.com;
+    root /var/www/html/public;
+
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+## 4. Ottimizzazione per la Produzione
+
+### 4.1 Cache delle Configurazioni
+
+```bash
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+### 4.2 Imposta i Permessi
+
+```bash
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 775 /var/www/html/storage
+```
+
+L'applicazione dovrebbe ora essere pronta per essere distribuita in produzione.
