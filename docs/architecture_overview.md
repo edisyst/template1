@@ -38,6 +38,7 @@ Per migliorare le performance, vengono utilizzati i seguenti meccanismi di cachi
 
 ## Diagramma dell'Architettura
 
+Immagine del 
 ![Diagramma dell'Architettura](./architecture_diagram.png)
 
 ## Considerazioni di Sicurezza
