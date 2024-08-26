@@ -1,2 +1,6 @@
-Contenuto: Un file di licenza che stabilisce le condizioni d'uso del codice.
-Suggerimento: Usa una licenza standard come MIT, Apache 2.0 o GPL, a seconda delle tue esigenze di condivisione e protezione del codice.
+a. Scegliere la Licenza
+MIT: Molto permissiva, permette agli altri di usare, modificare e distribuire il tuo codice.
+Apache 2.0: Simile a MIT, ma include anche una clausola di licenza sui brevetti.
+GPL: Più restrittiva, richiede che le modifiche e i progetti derivati siano anch'essi distribuiti sotto la stessa licenza.
+b. Inserimento nel Template
+Crea il file LICENSE nel tuo template e includi una licenza standard che si adatti meglio al tipo di progetti che creerai. Ricorda che la scelta della licenza influisce su come il tuo codice può essere utilizzato da altri.
