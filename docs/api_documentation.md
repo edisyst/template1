@@ -1,4 +1,3 @@
-
 # API Documentation
 
 Questa documentazione descrive le API RESTful disponibili nel progetto.
@@ -11,10 +10,12 @@ L'autenticazione viene gestita tramite token JWT. Ogni richiesta deve includere 
 Authorization: Bearer your-jwt-token
 ```
 
+## Endpoints
 
-Endpoints
-1. Utenti
+### 1. Utenti
+
 GET /api/v1/users
+
 Descrizione: Recupera una lista di tutti gli utenti.
 
 Request:
@@ -43,6 +44,7 @@ Response:
 ```
 
 POST /api/v1/users
+
 Descrizione: Crea un nuovo utente.
 
 Request:
@@ -70,8 +72,10 @@ Response:
 }
 ```
 
-2. Post
+### 2. Post
+
 GET /api/v1/posts
+
 Descrizione: Recupera una lista di tutti i post.
 
 Request:
@@ -99,7 +103,8 @@ Response:
 ]
 ```
 
-3. Errori
+### 3. Errori
+
 Le API seguono la seguente struttura per gli errori:
 
 Response:
@@ -113,91 +118,6 @@ Response:
 }
 ```
 
-4. Rate Limiting
+### 4. Rate Limiting
+
 L'API impone un limite di 60 richieste al minuto per ogni IP. Se superi questo limite, riceverai una risposta 429 Too Many Requests.
-
-vjavascript
-
-
-### **5. `troubleshooting.md`**
-
-Un documento di risoluzione dei problemi comuni che possono verificarsi durante lo sviluppo o l'uso dell'applicazione.
-
-
-# Troubleshooting
-
-Questo documento offre soluzioni ai problemi comuni che potresti incontrare mentre lavori su questo progetto.
-
-## 1. Problema: `500 Internal Server Error`
-
-**Causa Probabile:** Configurazione errata del file `.env`.
-
-**Soluzione:** Assicurati che il file `.env` sia configurato correttamente e che le chiavi `APP_KEY`, `DB_CONNECTION`, e altre variabili importanti siano impostate correttamente. Esegui:
-
-```bash
-php artisan config:cache
-```
-
-2. Problema: SQLSTATE[HY000] [1045] Access denied for user 'username'@'localhost'
-Causa Probabile: Credenziali del database errate.
-
-Soluzione: Verifica che il nome utente, la password e il nome del database nel file .env siano corretti. Ad esempio:
-
-
-```dotenv
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your_database_name
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-```
-
-3. Problema: Class 'X' not found
-Causa Probabile: Manca un file o un pacchetto Composer.
-
-Soluzione: Prova a eseguire:
-
-```bash
-
-composer install
-composer dump-autoload
-```
-
-4. Problema: 419 Page Expired
-Causa Probabile: Token CSRF mancante o sessione scaduta.
-
-Soluzione: Verifica che il form HTML contenga il token CSRF:
-
-```blade
-@csrf
-```
-
-Inoltre, assicurati che le sessioni siano configurate correttamente nel file .env.
-
-5. Problema: Command "npm run production" fails
-Causa Probabile: Dipendenze di Node.js mancanti o configurazione errata.
-
-Soluzione: Esegui:
-
-```bash
-npm install
-```
-
-Verifica che la versione di Node.js sia compatibile con il progetto. Se il problema persiste, prova a cancellare la cache di npm:
-
-```bash
-npm cache clean --force
-```
-
-
-### **Conclusione**
-Questi esempi di documenti Markdown possono fornire una base solida per la documentazione del tuo progetto, aiutando gli sviluppatori e gli utenti a comprendere meglio il progetto, a configurare l'ambiente di sviluppo, e a risolvere eventuali problemi.
-Puoi ulteriormente personalizzare questi documenti in base alle esigenze specifiche del tuo progetto.
-
-
-
-
-
-
